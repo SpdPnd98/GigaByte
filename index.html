@@ -1,24 +1,59 @@
 <!DOCTYPE html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <html>
 <body>
-<h2>Belanja</h2>
-<h4>Here’s how it works:</h4>
-
-<ol type="1">
-  <li>Select stall and food type that you want to belanja (pay for).</li>
-  <li>Proceed through e-payment to pay for a meal without being physically at the store.</li>
-  <li>Tell all of your friends about us and so we can fill more tummies and warm hearts!</li>
-</ol>
-<p>Please select the stall to donate:</p>
-<form action="/action_page.php">
-  <select name="foodstalls">
-    <option value="Aljunid Corner">Aljunid Corner</option>
-    <option value="Century Vegetarian Pte Ltd.">Century Vegetarian Pte Ltd.</option>
-    <option value="Boon Lay Place">Boon Lay Place</option>
-    <option value="Makan Corner">Makan Corner</option>
-  </select>
-  <br><br>
-  <input type="submit">
-</form>
+  <div class="top-left">Welcome to BelanjaONE!</div>
+  <br>
+  <video width="100%" height="10%" controls autoplay>
+    <source src="images/belanja.mp4" type="video/mp4">
+  </video>
+  <br>
+  <h4>Here’s how it works:</h4>
+  <ol type="1">
+    <li>Select stall and food type that you want to belanja (pay for).</li>
+    <li>Proceed through e-payment to pay for a meal without being physically at the store.</li>
+    <li>Tell all of your friends about us and so we can fill more tummies and warm hearts!</li>
+  </ol>
+  <br>
+  <div class="flex-container">
+    <div class="container">
+      <img class="image" src="images/malay.jpg" alt="makancorner">
+      <div class="overlay">
+        <div class="text">Makan Corner</div>
+      </div>
+    </div>
+    <div class="container">
+      <img class="image" src="images/ac.jpg" alt="aljunidcorner">
+      <div class="overlay">
+        <div class="text">Aljunid Corner</div>
+      </div>
+    </div>
+    <div class="container">
+      <img class="image" src="images/veg2.jpg" alt="centuryvegetarian">
+      <div class="overlay">
+        <div class="text">Century Vegetarian</div>
+      </div>
+    </div>
+    <div class="container">
+      <img class="image" src="images/bl.jpg" alt="boonlayplace">
+      <div class="overlay">
+        <div class="text">Boon Lay Place</div>
+      </div>
+    </div>
+  </div>
+  <h4>Please select the stall to donate:</h4>
+    <form action="/action_page.php">
+      <select name="foodstalls">
+        <option value="Aljunid Corner">Aljunid Corner</option>
+        <option value="Century Vegetarian Pte Ltd.">Century Vegetarian Pte Ltd.</option>
+        <option value="Boon Lay Place">Boon Lay Place</option>
+        <option value="Makan Corner">Makan Corner</option>
+      </select>
+      <br><br>
+      <input type="submit">
+    </form>
+  <h6>© Copyright Gigabyte,CXA2019</h6>
 </body>
 </html>
