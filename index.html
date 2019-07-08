@@ -1,59 +1,137 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <title>BelanjaONE</title>
+  <!-- <link rel="shortcut icon" href="images/logo.png"> -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<html>
+
 <body>
-  <div class="top-left">Welcome to BelanjaONE!</div>
-  <br>
-  <video width="100%" height="10%" controls autoplay>
-    <source src="images/belanja.mp4" type="video/mp4">
-  </video>
-  <br>
-  <h4>Here’s how it works:</h4>
-  <ol type="1">
-    <li>Select stall and food type that you want to belanja (pay for).</li>
-    <li>Proceed through e-payment to pay for a meal without being physically at the store.</li>
-    <li>Tell all of your friends about us and so we can fill more tummies and warm hearts!</li>
-  </ol>
-  <br>
-  <div class="flex-container">
-    <div class="container">
-      <img class="image" src="images/malay.jpg" alt="makancorner">
-      <div class="overlay">
-        <div class="text">Makan Corner</div>
+  <header>
+    <div class="container-fluid transparent">
+      <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
+        <a class="navbar-brand" href="#" title="BelanjaOne">BelanjaOne</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
+            <a class="nav-item nav-link" href="#" title="BelanjaOne">BelanjaONE</a>
+            <a class="nav-item nav-link" href="#" title="About Us">Food Stalls</a>
+            <a class="nav-item nav-link" href="#" title="Contact Us">Contact Us</a>
+            <button type="button" class="btn btn-outline-light">Log In</button>
+            <button type="button" class="btn btn-light">Sign Up</button>
+            <!-- <a class="nav-item nav-link" href="#" title="Sign Up">Sign Up</a> -->
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- <div class="top-left container">Welcome to BelanjaONE!</div> -->
+
+  <section>
+
+    <!-- video welcome -->
+    <div class="container-media">
+      <div class="mediabg media-fade">
+        <video controls autoplay loop>
+          <source src="images/belanja.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="inner-container textOnVid">
+        <header>
+          <h1>Welcome to BelanjaOne</h1>
+        </header>
       </div>
     </div>
-    <div class="container">
-      <img class="image" src="images/ac.jpg" alt="aljunidcorner">
-      <div class="overlay">
-        <div class="text">Aljunid Corner</div>
+    <!-- how it works -->
+    <div class="container-media">
+      <div class="mediabg media-fade pic1">
+      </div>
+      <div class="inner-container textOnPic">
+        <header>
+          <h1>Here’s how it works:</h1>
+          <ol type="1">
+            <li>Select stall and food type that you want to belanja (pay for).</li>
+            <li>Proceed through e-payment to pay for a meal without being physically at the store.</li>
+            <li>Tell all of your friends about us and so we can fill more tummies and warm hearts!</li>
+          </ol>
+          <a href=""></a>
+        </header>
       </div>
     </div>
-    <div class="container">
-      <img class="image" src="images/veg2.jpg" alt="centuryvegetarian">
-      <div class="overlay">
-        <div class="text">Century Vegetarian</div>
+    <!-- Food images -->
+    <div class="stall">
+      <div class="container">
+        <h1>Please select the stall to donate:</h1>
+        <div class="row">
+          <div class="col-sm-3 pic-container">
+            <img class="image" src="images/malay.jpg" alt="makancorner">
+            <div class="overlay">
+              <div class="text">Makan Corner</div>
+            </div>
+          </div>
+          <div class="col-sm-3 pic-container">
+            <img class="image" src="images/ac.jpg" alt="aljunidcorner">
+            <div class="overlay">
+              <div class="text">Aljunid Corner</div>
+            </div>
+          </div>
+          <div class="col-sm-3 pic-container">
+            <img class="image" src="images/veg2.jpg" alt="centuryvegetarian">
+            <div class="overlay">
+              <div class="text">Century Vegetarian</div>
+            </div>
+          </div>
+          <div class="col-sm-3 pic-container">
+            <img class="image" src="images/bl.jpg" alt="boonlayplace">
+            <div class="overlay">
+              <div class="text">Boon Lay Place</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Select Stall -->
+        <div class="container container1">
+          <form action="/action_page.php" id="pickStall">
+            <select name="foodstalls">
+              <option value="Aljunid Corner">Aljunid Corner</option>
+              <option value="Century Vegetarian Pte Ltd.">Century Vegetarian Pte Ltd.</option>
+              <option value="Boon Lay Place">Boon Lay Place</option>
+              <option value="Makan Corner">Makan Corner</option>
+            </select>
+            <p><input type="submit" class="btn btn-light"></p>
+          </form>
+        </div>
       </div>
     </div>
-    <div class="container">
-      <img class="image" src="images/bl.jpg" alt="boonlayplace">
-      <div class="overlay">
-        <div class="text">Boon Lay Place</div>
-      </div>
-    </div>
-  </div>
-  <h4>Please select the stall to donate:</h4>
-    <form action="/action_page.php">
-      <select name="foodstalls">
-        <option value="Aljunid Corner">Aljunid Corner</option>
-        <option value="Century Vegetarian Pte Ltd.">Century Vegetarian Pte Ltd.</option>
-        <option value="Boon Lay Place">Boon Lay Place</option>
-        <option value="Makan Corner">Makan Corner</option>
-      </select>
-      <br><br>
-      <input type="submit">
-    </form>
-  <h6>© Copyright Gigabyte,CXA2019</h6>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Copyright Gigabyte, CXA2019</p>
+  </footer>
 </body>
+
 </html>

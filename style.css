@@ -1,20 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 body {
-  font-family: monospace;
   color: black;
   background-color: white;
+  margin: 0 auto;
+  font-size: 16px;
 }
+
+h1 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* anchor text */
+
+a {
+  display: inline;
+  text-decoration: none;
+  color: dodgerblue;
+}
+
+a:visited {
+  color: dodgerblue;
+}
+
+a:hover {
+  display: inline;
+  color: #ff8c00;
+  transition: .2s;
+}
+
+a:active {
+  color: #ff8c00;
+}
+
+/* header */
 
 .top-left {
   font-size: 30px;
+  text-align: center;
+}
+
+/* navbar */
+
+.transparent {
+  background-color: rgba(0, 0, 0, 0);
+  /* display: flex; */
+  align-items: center;
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navbar {
+  vertical-align: middle;
+}
+
+.navbar-brand {
+  font-size: 25px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #ffffff;
+}
+
+nav a:hover {
+  display: block;
+  font-weight: bold;
+  transition: .1s;
+  text-decoration: none;
+}
+
+nav a::after {
+  display: block;
+  content: attr(title);
+  font-weight: bold;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  padding: 0 10px;
+}
+
+button {
+  margin: 0 10px;
 }
 
 h6 {
   text-align: right;
 }
 
-.container {
+/* section */
+
+section {
+  display: block;
+}
+
+/* Video */
+
+.container-media {
   position: relative;
-  width: 50%;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  background: #333;
+  object-fit: cover;
+  background-size: 100% auto;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  margin: 0 0;
+  padding: 0 0;
+  text-align: center;
+}
+
+.inner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding: 110px 80px;
+  width: 100%;
+}
+
+.mediabg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.media-fade {
+  opacity: .5;
+}
+
+video {
+  object-fit: cover;
+  width: 100%;
+  min-height: 100%;
+}
+
+.textOnVid {
+  color: white;
+  display: flex;
+  z-index: 100;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Self-Service Stall Picture */
+
+#how {
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+  background-position: center;
+}
+
+.pic1 {
+  background-image: url("images/photo-1534683251650-3fd64cd1561a.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.textOnPic {
+  color: white;
+  display: flex;
+  z-index: 100;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Pick a stall */
+
+.stall {
+  padding: 60px 0;
+  color: #333333;
+  text-align: center;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+  background-position: center;
+}
+
+.container1 {
+  margin: 50px 0 0 0;
 }
 
 .image {
@@ -33,10 +216,10 @@ h6 {
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: #008CBA;
+  background-color: #333;
 }
 
-.container:hover .overlay {
+.pic-container:hover .overlay {
   opacity: 1;
 }
 
@@ -50,8 +233,22 @@ h6 {
   -ms-transform: translate(-50%, -50%);
 }
 
-.flex-container {
-  display: flex;
-  flex-wrap: nowrap;
-  background-color: DodgerBlue;
+#pickStall select {
+  padding: 12px;
+  margin: 0 0 2% 0;
+  border-radius: 2px;
+  width: 70%;
+  color: #333333;
+  border-style: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+#pickStall input[type="submit"] {
+  width: 70%;
+}
+
+#pickStall input[type=submit]:hover {
+  background-color: #666666;
+  color: #ffffff;
 }
