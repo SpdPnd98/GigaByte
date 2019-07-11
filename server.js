@@ -63,7 +63,7 @@ let app = http.createServer((req, res) => {
                         }else if (post.confirmation == "No"){
                             toshow = '<p> You have cancelled your donation.</p>';
                         }
-                        toshow += '<p>Click <a href="localhost:5000">here</a> to return.</p>';
+                        toshow += '<p>Click <a href="/">here</a> to return.</p>';
                         break;
                     default:
                         console.log('something happened, here\'s what you are seeing: ' + body);
