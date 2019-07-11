@@ -33,7 +33,8 @@ let app = http.createServer((req, res) => {
     console.log(ext);
     var fileDir = path.dirname(req.url);
     var content = __dirname + fileDir + '/'+  fileName;
-    var donor = '';
+    var header = __dirname + fileDir + 'header.html';
+    var toshow = '';
     if(req.method === 'POST'){
         var body = '';
         req.on('data',(data)=>{
@@ -41,23 +42,37 @@ let app = http.createServer((req, res) => {
         });
         req.on('end', ()=>{
             var post = querystring.parse(body);
+            console.log(post);
             var tempFile = __dirname + fileDir + '/' + 'temp.html';
-            fs.unlink(tempFile, function (err) {
-                if (err) throw err;
+            console.log(header);
+            fs.readFile(header, (err, data)=>{
+                fs.unlinkSync(tempFile);
                 console.log('temp.html deleted!');
-              });
-            fs.readFile(__dirname + fileDir + '/header.html', (err, data)=>{
                 fs.appendFileSync(tempFile, data);
+                console.log('added header');
                 switch(req.url){
                     case '/donate':
-                        donor = '/donor.html';
+                        toshow = '<p> Are you sure you want to donate to ' + post.foodstalls + '?</p>';
+                        toshow += '<form method="POST" action="confirmation"><input type="Submit" name ="confirmation" value="Yes"/><input type="Submit" name="confirmation" value="No"/></form>';
+                        break;
+                    case '/confirmation':
+                        console.log(post.confirmation);
+                        if (post.confirmation == "Yes"){
+                            console.log(post.confirmation);
+                            toshow = '<p> Your donation is successful!</p>';
+                        }else if (post.confirmation == "No"){
+                            toshow = '<p> You have cancelled your donation.</p>';
+                        }
+                        toshow += '<p>Click <a href="localhost:5000">here</a> to return.</p>';
                         break;
                     default:
+                        console.log('something happened, here\'s what you are seeing: ' + body);
                         break;
-                }
-                fs.readFile(__dirname + fileDir + donor, (err, body)=>{
-                    fs.appendFileSync(tempFile, body);
-                    fs.readFile(__dirname + fileDir + '/footer.html', (err, footer)=>{
+                } 
+                fs.writeFile(tempFile, toshow, { flag: 'a+' }, (err)=>{
+                    console.log('added body');
+                    fs.readFile(__dirname + fileDir + 'footer.html', (err, footer)=>{
+                        console.log('added footer');
                         fs.appendFileSync(tempFile, footer);
                         var total = fs.statSync(tempFile).size;
                         res.writeHead(200, {'Content-Length': total, 'Content-Type': extensions['.html']});
