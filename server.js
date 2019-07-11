@@ -1,6 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const querystring = require('querystring');
+const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 extensions = {
 	".html" : "text/html",
@@ -13,6 +15,17 @@ extensions = {
     ".ico" : "image/ico"
 };
 
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4)
+            callback(xmlHttp.responseText);
+    }
+    fs.open(theUrl);
+
+}
+
 // Create an instance of the http server to handle HTTP requests
 let app = http.createServer((req, res) => { 
     var fileName = path.basename(req.url) || 'index.html';
@@ -20,17 +33,50 @@ let app = http.createServer((req, res) => {
     console.log(ext);
     var fileDir = path.dirname(req.url);
     var content = __dirname + fileDir + '/'+  fileName;
-    if (ext == ".mp4"){
+    var donor = '';
+    if(req.method === 'POST'){
+        var body = '';
+        req.on('data',(data)=>{
+            body += data;
+        });
+        req.on('end', ()=>{
+            var post = querystring.parse(body);
+            var tempFile = __dirname + fileDir + '/' + 'temp.html';
+            fs.unlink(tempFile, function (err) {
+                if (err) throw err;
+                console.log('temp.html deleted!');
+              });
+            fs.readFile(__dirname + fileDir + '/header.html', (err, data)=>{
+                fs.appendFileSync(tempFile, data);
+                switch(req.url){
+                    case '/donate':
+                        donor = '/donor.html';
+                        break;
+                    default:
+                        break;
+                }
+                fs.readFile(__dirname + fileDir + donor, (err, body)=>{
+                    fs.appendFileSync(tempFile, body);
+                    fs.readFile(__dirname + fileDir + '/footer.html', (err, footer)=>{
+                        fs.appendFileSync(tempFile, footer);
+                        var total = fs.statSync(tempFile).size;
+                        res.writeHead(200, {'Content-Length': total, 'Content-Type': extensions['.html']});
+                        fs.createReadStream(tempFile).pipe(res);
+                        
+                        
+                    });
+                });
+            });
+            
+        });
+        
+    }
+    else {
         var total = fs.statSync(content).size;
-        res.writeHead(200, {'Content-Length': total, 'Content-Type': extensions[ext],
-    });
+        res.writeHead(200, {'Content-Length': total, 'Content-Type': extensions[ext]});
+        console.log(content +'\n');
+        fs.createReadStream(content).pipe(res);
     }
-    else{
-        res.writeHead(200, {'Content-Type': extensions[ext]});
-    }
-    
-    console.log(content +'\n');
-    fs.createReadStream(content).pipe(res);
     
 });
 
