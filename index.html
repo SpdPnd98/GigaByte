@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
   <title>BelanjaONE</title>
-  <!-- <link rel="shortcut icon" href="images/logo.png"> -->
+  <link rel="shortcut icon" href="favicon.ico">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -25,8 +25,8 @@
 </head>
 
 <body>
-  <header>
-    <div class="container-fluid transparent">
+  <header class="transparent mobile-nav">
+    <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
         <a class="navbar-brand" href="#" title="BelanjaOne">BelanjaOne</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
@@ -36,8 +36,8 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
-            <a class="nav-item nav-link" href="#" title="BelanjaOne">BelanjaONE</a>
-            <a class="nav-item nav-link" href="#" title="About Us">Food Stalls</a>
+            <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaONE</a>
+            <a class="nav-item nav-link" href="userDash.html" title="Food Stalls">Food Stalls</a>
             <a class="nav-item nav-link" href="#" title="Contact Us">Contact Us</a>
             <button type="button" class="btn btn-outline-light">Log In</button>
             <button type="button" class="btn btn-light">Sign Up</button>
@@ -71,7 +71,7 @@
       <div class="mediabg media-fade pic1">
       </div>
       <div class="inner-container textOnPic">
-        <header>
+        <header class="howitworks">
           <h1>Here’s how it works:</h1>
           <ol type="1">
             <li>Select stall and food type that you want to belanja (pay for).</li>
@@ -115,7 +115,7 @@
 
         <!-- Select Stall -->
         <div class="container container1">
-          <form action="donate" id="pickStall" method="POST">
+          <form action="action_page.php" id="pickStall" method="POST">
             <select name="foodstalls">
               <option value="Aljunid Corner">Aljunid Corner</option>
               <option value="Century Vegetarian Pte Ltd.">Century Vegetarian Pte Ltd.</option>
