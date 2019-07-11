@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const querystring = require('querystring');
-const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+let file = require('/home/spdpnd98/gitRepos/schoolCollabs/GigaByte/stalls.json');
 
 extensions = {
 	".html" : "text/html",
@@ -14,17 +14,6 @@ extensions = {
     ".mp4" : "video/mp4",
     ".ico" : "image/ico"
 };
-
-function httpGetAsync(theUrl, callback)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4)
-            callback(xmlHttp.responseText);
-    }
-    fs.open(theUrl);
-
-}
 
 // Create an instance of the http server to handle HTTP requests
 let app = http.createServer((req, res) => { 
@@ -53,18 +42,32 @@ let app = http.createServer((req, res) => {
                 switch(req.url){
                     case '/donate':
                         toshow = '<p> Are you sure you want to donate to ' + post.foodstalls + '?</p>';
-                        toshow += '<form method="POST" action="confirmation"><input type="Submit" name ="confirmation" value="Yes"/><input type="Submit" name="confirmation" value="No"/></form>';
+                        toshow += '<form method="POST" action="confirmation"><input type="Submit" name ="confirmation" value="Yes"/><input type="Submit" name="confirmation" value="No"/> <input type="hidden" value = "' + post.foodstalls +'" name="foodstalls"/></form>';
                         break;
                     case '/confirmation':
+                        //var records = [];
                         console.log(post.confirmation);
                         if (post.confirmation == "Yes"){
-                            console.log(post.confirmation);
+                            file[post.foodstalls] = file[post.foodstalls] + 1;
+                            fs.writeFile('/home/spdpnd98/gitRepos/schoolCollabs/GigaByte/stalls.json', JSON.stringify(file), function (err) {
+                            if (err) return console.log(err);
+                            console.log(JSON.stringify(file));
+                            console.log('writing to stalls.json');
+                            });                         
                             toshow = '<p> Your donation is successful!</p>';
                         }else if (post.confirmation == "No"){
                             toshow = '<p> You have cancelled your donation.</p>';
                         }
                         toshow += '<p>Click <a href="/">here</a> to return.</p>';
                         break;
+                    case '/eat':
+                        // pass in a foodstall name to delete it
+                        file[post.foodstalls] = file[post.foodstalls] - 1;
+                        fs.writeFile('/home/spdpnd98/gitRepos/schoolCollabs/GigaByte/stalls.json', JSON.stringify(file), function (err) {
+                        if (err) return console.log(err);
+                        console.log(JSON.stringify(file));
+                        console.log('writing to stalls.json');
+                        });
                     default:
                         console.log('something happened, here\'s what you are seeing: ' + body);
                         break;
