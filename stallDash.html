@@ -175,15 +175,78 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">[placeholder]</th>
-                                            <td>Hello world Hello world Hello world Hello world Hello world Hello
-                                                world
-                                                Hello world
-                                                Hello world Hello world </td>
-                                            <td><button type="button" class="btn btn-dark">Donate</button></td>
-                                            <td class="currentDonation">Current Donation 01</td>
+                                    <tbody = "HotDeals">
+                                            <script>
+                                                    console.log("iamai"); 
+                                                    function setCells2(data) {
+                                                    var z = document.createElement("TH");
+                                                    var t = document.createTextNode(data["Name"]);
+                                                    z.appendChild(t);
+                                                    document.getElementById(data["Name"]+" row new").appendChild(z);
+                                                    z = document.createElement("TD");
+                                                    t= document.createElement("INPUT");
+                                                    t.type="radio";
+                                                    t.name="donationAmount";
+                                                    t.id="DiscountedPrice";
+                                                    t.value = data["DiscountedPrice"];
+                                                    var objTextNode = document.createTextNode(data["DiscountedPrice"]);
+                                                    var objLabel = document.createElement("label");
+                                                    objLabel.htmlFor = t.id;
+                                                    objLabel.appendChild(t);
+                                                    objLabel.appendChild(objTextNode);
+                                                    z.appendChild(objLabel);
+                                                    t= document.createElement("INPUT");
+                                                    t.type="radio";
+                                                    t.name="donationAmount";
+                                                    t.id="OriginalPrice";
+                                                    t.value = data["OriginalPrice"];
+                                                    objTextNode = document.createTextNode(data["OriginalPrice"]);
+                                                    objLabel = document.createElement("label");
+                                                    objLabel.htmlFor = t.id;
+                                                    objLabel.appendChild(t);
+                                                    objLabel.appendChild(objTextNode);
+                                                    z.appendChild(objLabel);
+                                                    document.getElementById(data["Name"]+" row new").appendChild(z);
+                                                    z = document.createElement("TD");
+                                                    btn = document.createElement("BUTTON");
+                                                    btn.appendChild(document.createTextNode("Donate"));
+                                                    btn.setAttribute("id",data["Name"] + "btn2 new");
+                                                    btn.setAttribute("type","button");
+                                                    btn.setAttribute("class","btn btn-dark");
+                                                    z.appendChild(btn);
+                                                    document.getElementById(data["Name"]+" row new").appendChild(z);
+                                                    
+                                                    z = document.createElement("TR");
+                                                    t = document.createTextNode(data["Count"]);
+                                                    z.appendChild(t);
+                                                    document.getElementById(data["Name"]+" row new").appendChild(z);
+                                                    }
+                                                    function readTextFile(file, callback) {
+                                                    var rawFile = new XMLHttpRequest();
+                                                    rawFile.overrideMimeType("application/json");
+                                                    rawFile.open("GET", file, true);
+                                                    rawFile.onreadystatechange = function() {
+                                                    console.log("Opening the GATE!")
+                                                    if (rawFile.readyState === 4 && rawFile.status == "200") {
+                                                    callback(rawFile.responseText);
+                                                    }
+                                                    }
+                                                    rawFile.send(null);
+                                                    }
+                                                    //usage:
+                                                    readTextFile("stalls.json", function(text){ 
+                                                    var data = JSON.parse(text);
+                                                    for(element of data){
+                                                    console.log(JSON.stringify(element));
+                                                    console.log(element["Name"]);
+                                                    var y = document.createElement("TR");
+                                                    y.setAttribute("id", element["Name"]+" row new");
+                                                    document.getElementById("HotDeals").appendChild(y);
+                                                    setCells2(element);
+                                                    }
+                                                    });
+                                                    </script>
+                                                    
                                         </tr>
                                     </tbody>
                                 </table>
