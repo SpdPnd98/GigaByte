@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const querystring = require('querystring');
 let file = require('/home/spdpnd98/gitRepos/schoolCollabs/GigaByte/stalls.json');
+const request = require('request');
 
 extensions = {
 	".html" : "text/html",
@@ -48,12 +49,18 @@ let app = http.createServer((req, res) => {
                         //var records = [];
                         console.log(post.confirmation);
                         if (post.confirmation == "Yes"){
-                            file[post.foodstalls] = file[post.foodstalls] + 1;
-                            fs.writeFile('/home/spdpnd98/gitRepos/schoolCollabs/GigaByte/stalls.json', JSON.stringify(file), function (err) {
-                            if (err) return console.log(err);
-                            console.log(JSON.stringify(file));
-                            console.log('writing to stalls.json');
-                            });                         
+                            for (var obj of file ){
+                                if (obj["Name"] == post.foodstalls){
+                                    obj["Count"] = obj["Count"] + 1; 
+                                    fs.writeFile('/home/spdpnd98/gitRepos/schoolCollabs/GigaByte/stalls.json', JSON.stringify(file), function (err) {
+                                    if (err) return console.log(err);
+                                    console.log(JSON.stringify(file));
+                                    console.log('writing to stalls.json');
+                                    
+                                });
+                                
+                            }
+                        }                         
                             toshow = '<p> Your donation is successful!</p>';
                         }else if (post.confirmation == "No"){
                             toshow = '<p> You have cancelled your donation.</p>';
@@ -62,12 +69,54 @@ let app = http.createServer((req, res) => {
                         break;
                     case '/eat':
                         // pass in a foodstall name to delete it
-                        file[post.foodstalls] = file[post.foodstalls] - 1;
-                        fs.writeFile('/home/spdpnd98/gitRepos/schoolCollabs/GigaByte/stalls.json', JSON.stringify(file), function (err) {
-                        if (err) return console.log(err);
-                        console.log(JSON.stringify(file));
-                        console.log('writing to stalls.json');
-                        });
+                            for (var obj of file ){
+                                if (obj["Name"] == post.foodstalls){
+                                    obj["Count"] = obj["Count"] - 1;
+                                    fs.writeFile('/home/spdpnd98/gitRepos/schoolCollabs/GigaByte/stalls.json', JSON.stringify(file), function (err) {
+                                    if (err) return console.log(err);
+                                    console.log('Hi I reached here');
+                                    console.log('writing to stalls.json');
+                                    toshow += "<p>Consumed from " + post.foodstalls + ".</p>";
+                                });
+                            }
+                        }
+                        break;
+                    /*case '/userdashboard':
+                        toshow =`<section>
+                        <div class="container-map">
+                            <div class="map">
+                                <iframe src="https://www.google.com/maps/d/embed?mid=1GoZj5sbJ34YmEBb9ooh7mlXxyhR7w028"></iframe>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="table-container">
+                        <div class="tabletitle">
+                            <h1>Stalls Nearby</h1>
+                        </div>
+                        <!-- Table -->
+                        <div class="container">
+                            <div class="table-wrapper-scroll-y my-custom-scrollbar stallList">
+                                <table class="table table-hover table-light mb-0" id="restaurantTable">
+                                    
+                                    <thead>
+                                        <tr>
+                                            <th class="col-xs-3">Stall</th>
+                                            <th class="col-xs-6">Description</th>
+                                            <th class="col-xs-1">Donate</th>
+                                            <th class="col-xs-2">Donations</th>
+                                        </tr>
+                                    </thead>
+                
+                                    <tbody>`;
+                        for (const element of file) {
+                            toshow += `<tr>
+                            <th scope="row">` + element +`</th>
+                            <td>`+ 'very popular!' + `</td>
+                            <td><button type="button" class="btn btn-dark">Donate</button></td>
+                            <td class="currentDonation">`+ file[element] + `</td>
+                        </tr>`;
+                        }
+                        break;*/
                     default:
                         console.log('something happened, here\'s what you are seeing: ' + body);
                         break;
@@ -88,12 +137,29 @@ let app = http.createServer((req, res) => {
             
         });
         
-    }
-    else {
-        var total = fs.statSync(content).size;
-        res.writeHead(200, {'Content-Length': total, 'Content-Type': extensions[ext]});
-        console.log(content +'\n');
-        fs.createReadStream(content).pipe(res);
+    }else if (req.method === 'GET'){
+        switch(req.url){
+            case '/userDash.html':
+                    request.post('/userdashboard', {
+                        json: {
+                          ai: 'Buy the ai'
+                        }
+                      }, (error, res, body) => {
+                        if (error) {
+                          console.error(error);
+                          return;
+                        }
+                        console.log(`statusCode: ${res.statusCode}`);
+                        console.log(body);
+                      });
+            break;
+            default:
+                    var total = fs.statSync(content).size;
+                    res.writeHead(200, {'Content-Length': total, 'Content-Type': extensions[ext]});
+                    console.log(content +'\n');
+                    fs.createReadStream(content).pipe(res);
+                break;
+        }
     }
     
 });
