@@ -98,67 +98,63 @@
                                 <table class="table table-hover table-light mb-0">
                                     <thead>
                                         <tr>
-                                            <th class="col-xs-6">Name</th>
-                                            <th class="col-xs-4">Donations</th>
+                                            <th class="col-xs-2">Stalls</th>
+                                            <th class="col-xs-8">Message</th>
                                             <th class="col-xs-2">Send Thank You Card</th>
                                         </tr>
                                     </thead>
 
-                                    <tbody id = "donors">
+                                    <tbody id = "ThankYou">
                                             <script>
-                                                    function setCells(data) {
-                                                        var z = document.createElement("TD");
-                                                        var t = document.createTextNode(data["Name"]);
-                                                        z.appendChild(t);
-                                                        document.getElementById(data["Name"]+" row").appendChild(z);
-                                        
-                                                        z = document.createElement("TD");
-                                                        t= document.createTextNode(data["Description"]);
-                                                        document.getElementById(data["Name"]+" row").appendChild(z);
-                                                        z.appendChild(t);
-                                        
-                                                        z = document.createElement("TD");
-                                                        btn = document.createElement("BUTTON");
-                                                        btn.appendChild(document.createTextNode("Donate"));
-                                                        btn.setAttribute("id",data["Name"] + "btn");
-                                                        z.appendChild(btn);
-                                                        document.getElementById(data["Name"]+" row").appendChild(z);
-                                        
-                                                        z = document.createElement("TD");
-                                                        t = document.createTextNode(data["Count"]);
-                                                        z.appendChild(t);
-                                                        document.getElementById(data["Name"]+" row").appendChild(z);
-                                                    }
-                                                    function readTextFile(file, callback) {
-                                                    var rawFile = new XMLHttpRequest();
-                                                    rawFile.overrideMimeType("application/json");
-                                                    rawFile.open("GET", file, true);
-                                                    rawFile.onreadystatechange = function() {
-                                                        console.log("Opening the GATE!")
-                                                        if (rawFile.readyState === 4 && rawFile.status == "200") {
-                                                            callback(rawFile.responseText);
-                                                        }
-                                                    }
-                                                    rawFile.send(null);
+                                                console.log("iamai");   
+                                                function setCells(data) {
+                                                    var z = document.createElement("TH");
+                                                    var t = document.createTextNode(data["Name"]);
+                                                    z.appendChild(t);
+                                                    document.getElementById(data["Name"]+" row").appendChild(z);
+                                    
+                                                    z = document.createElement("TD");
+                                                    t= document.createElement("TEXTAREA");
+                                                    t.setAttribute("id", data["Name"]+" text")
+                                                    document.getElementById(data["Name"]+" row").appendChild(z);
+                                                    z.appendChild(t);
+                                    
+                                                    z = document.createElement("TD");
+                                                    btn = document.createElement("BUTTON");
+                                                    btn.appendChild(document.createTextNode("Thank You"));
+                                                    btn.setAttribute("id",data["Name"] + "btn");
+                                                    btn.setAttribute("type","button");
+                                                    btn.setAttribute("class","btn btn-warning thx");
+                                                    btn.setAttribute("onclick","document.getElementById('"+data["Name"]+ " text').value = ''; alert('One small step for a man, one GIANT leap for mankind! Thanks for your encouragement');");
+                                                    z.appendChild(btn);
+                                                    document.getElementById(data["Name"]+" row").appendChild(z);
                                                 }
-                                                //usage:
-                                                readTextFile("donor.json", function(text){
-                                                    console.log("iiziiiiiit");
-                                                    var data = JSON.parse(text);
-                                                    for(element of data){
-                                                        console.log(JSON.stringify(element));
-                                                        console.log(element["Name"]);
-                                                        var y = document.createElement("TR");
-                                                        y.setAttribute("id", element["Name"]+" row");
-                                                        document.getElementById("stalls").appendChild(y);
-                                                        setCells(element);
+                                                function readTextFile(file, callback) {
+                                                var rawFile = new XMLHttpRequest();
+                                                rawFile.overrideMimeType("application/json");
+                                                rawFile.open("GET", file, true);
+                                                rawFile.onreadystatechange = function() {
+                                                    console.log("Opening the GATE!")
+                                                    if (rawFile.readyState === 4 && rawFile.status == "200") {
+                                                        callback(rawFile.responseText);
                                                     }
-                                                });
-                                        <tr>
-                                            <th scope="row">[placeholder]</th>
-                                            <td class="currentDonation">01</td>
-                                            <td><button type="button" class="btn btn-warning thx">Thank You!</button></td>
-                                        </tr>
+                                                }
+                                                rawFile.send(null);
+                                            }
+                                            //usage:
+                                            readTextFile("stalls.json", function(text){
+                                                console.log("iiziiiiiit");
+                                                var data = JSON.parse(text);
+                                                for(element of data){
+                                                    console.log(JSON.stringify(element));
+                                                    console.log(element["Name"]);
+                                                    var y = document.createElement("TR");
+                                                    y.setAttribute("id", element["Name"]+" row");
+                                                    document.getElementById("ThankYou").appendChild(y);
+                                                    setCells(element);
+                                                }
+                                            });
+                                            </script>
                                     </tbody>
                                 </table>
                             </div>
