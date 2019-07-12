@@ -975,8 +975,8 @@ p.backtostall {
   font-size: 30px;
 }
 
-.badgeContainer span {
-  font-size: 30px;
+.badgeContainer img {
+  max-width: 30px;
 }
 
 .level-desc {
@@ -984,5 +984,6 @@ p.backtostall {
 }
 
 .level-desc p {
-  margin-bottom: 0;
+  margin-bottom: 5px;
+  font-size: 20px;
 }
