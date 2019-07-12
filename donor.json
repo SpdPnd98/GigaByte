@@ -1,5 +1,57 @@
+[{
+"Name":"SpdPnd98",
+"Foodstalls":[
 {
-"SpdPnd98": 200,
-"Silviana": 1,
-"Lee WJ": 200
+    "Stall": "Aljunied Corner",
+    "Count": 5
+},
+{
+    "Stall": "Makan Corner",
+    "Count": 10
+},
+{
+    "Stall": "Century Vegetarian Pte Ltd.",
+    "Count": 15
+},{
+    "Stall": "Boon Lay Placer",
+    "Count": 3
+}]
+},
+{"Name":"Silviana",
+    "Foodstalls":[
+        {
+            "Stall": "Aljunied Corner",
+            "Count": 2
+        },
+        {
+            "Stall": "Makan Corner",
+            "Count": 9
+        },
+        {
+            "Stall": "Century Vegetarian Pte Ltd.",
+            "Count": 7
+        },{
+            "Stall": "Boon Lay Placer",
+            "Count": 6
+        }]
+},
+{
+"Name":"Lee WJ",
+"Foodstalls": [
+    {
+        "Stall": "Aljunied Corner",
+        "Count": 20
+    },
+    {
+        "Stall": "Makan Corner",
+        "Count": 26
+    },
+    {
+        "Stall": "Century Vegetarian Pte Ltd.",
+        "Count": 50
+    },{
+        "Stall": "Boon Lay Placer",
+        "Count": 13
+    }]
 }
+]
