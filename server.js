@@ -81,42 +81,9 @@ let app = http.createServer((req, res) => {
                             }
                         }
                         break;
-                    /*case '/userdashboard':
-                        toshow =`<section>
-                        <div class="container-map">
-                            <div class="map">
-                                <iframe src="https://www.google.com/maps/d/embed?mid=1GoZj5sbJ34YmEBb9ooh7mlXxyhR7w028"></iframe>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="table-container">
-                        <div class="tabletitle">
-                            <h1>Stalls Nearby</h1>
-                        </div>
-                        <!-- Table -->
-                        <div class="container">
-                            <div class="table-wrapper-scroll-y my-custom-scrollbar stallList">
-                                <table class="table table-hover table-light mb-0" id="restaurantTable">
-                                    
-                                    <thead>
-                                        <tr>
-                                            <th class="col-xs-3">Stall</th>
-                                            <th class="col-xs-6">Description</th>
-                                            <th class="col-xs-1">Donate</th>
-                                            <th class="col-xs-2">Donations</th>
-                                        </tr>
-                                    </thead>
-                
-                                    <tbody>`;
-                        for (const element of file) {
-                            toshow += `<tr>
-                            <th scope="row">` + element +`</th>
-                            <td>`+ 'very popular!' + `</td>
-                            <td><button type="button" class="btn btn-dark">Donate</button></td>
-                            <td class="currentDonation">`+ file[element] + `</td>
-                        </tr>`;
-                        }
-                        break;*/
+                    case '/userdashboard':
+                        toshow =fs.readFileSync(__dirname + fileDir + 'userDash.html');
+                        break;
                     default:
                         console.log('something happened, here\'s what you are seeing: ' + body);
                         break;
@@ -139,8 +106,8 @@ let app = http.createServer((req, res) => {
         
     }else if (req.method === 'GET'){
         switch(req.url){
-            case '/userDash.html':
-                    request.post('/userdashboard', {
+            /*case '/userDash.html':
+                    request.post('http://localhost:5000/userdashboard', {
                         json: {
                           ai: 'Buy the ai'
                         }
@@ -152,7 +119,7 @@ let app = http.createServer((req, res) => {
                         console.log(`statusCode: ${res.statusCode}`);
                         console.log(body);
                       });
-            break;
+            break;*/
             default:
                     var total = fs.statSync(content).size;
                     res.writeHead(200, {'Content-Length': total, 'Content-Type': extensions[ext]});
