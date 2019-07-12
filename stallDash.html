@@ -105,6 +105,55 @@
                                     </thead>
 
                                     <tbody id = "donors">
+                                            <script>
+                                                    function setCells(data) {
+                                                        var z = document.createElement("TD");
+                                                        var t = document.createTextNode(data["Name"]);
+                                                        z.appendChild(t);
+                                                        document.getElementById(data["Name"]+" row").appendChild(z);
+                                        
+                                                        z = document.createElement("TD");
+                                                        t= document.createTextNode(data["Description"]);
+                                                        document.getElementById(data["Name"]+" row").appendChild(z);
+                                                        z.appendChild(t);
+                                        
+                                                        z = document.createElement("TD");
+                                                        btn = document.createElement("BUTTON");
+                                                        btn.appendChild(document.createTextNode("Donate"));
+                                                        btn.setAttribute("id",data["Name"] + "btn");
+                                                        z.appendChild(btn);
+                                                        document.getElementById(data["Name"]+" row").appendChild(z);
+                                        
+                                                        z = document.createElement("TD");
+                                                        t = document.createTextNode(data["Count"]);
+                                                        z.appendChild(t);
+                                                        document.getElementById(data["Name"]+" row").appendChild(z);
+                                                    }
+                                                    function readTextFile(file, callback) {
+                                                    var rawFile = new XMLHttpRequest();
+                                                    rawFile.overrideMimeType("application/json");
+                                                    rawFile.open("GET", file, true);
+                                                    rawFile.onreadystatechange = function() {
+                                                        console.log("Opening the GATE!")
+                                                        if (rawFile.readyState === 4 && rawFile.status == "200") {
+                                                            callback(rawFile.responseText);
+                                                        }
+                                                    }
+                                                    rawFile.send(null);
+                                                }
+                                                //usage:
+                                                readTextFile("donor.json", function(text){
+                                                    console.log("iiziiiiiit");
+                                                    var data = JSON.parse(text);
+                                                    for(element of data){
+                                                        console.log(JSON.stringify(element));
+                                                        console.log(element["Name"]);
+                                                        var y = document.createElement("TR");
+                                                        y.setAttribute("id", element["Name"]+" row");
+                                                        document.getElementById("stalls").appendChild(y);
+                                                        setCells(element);
+                                                    }
+                                                });
                                         <tr>
                                             <th scope="row">[placeholder]</th>
                                             <td class="currentDonation">01</td>
