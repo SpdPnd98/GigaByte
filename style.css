@@ -181,6 +181,9 @@ video {
   .howitworks {
     font-size: 35px;
   }
+  .confirmationpage p {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -194,6 +197,12 @@ video {
   }
   .btn {
     margin-bottom: 5px;
+  }
+  .confirmationhead {
+    font-size: 25px;
+  }
+  .quote{
+    display:none;
   }
 }
 
@@ -387,9 +396,54 @@ footer p {
   background-attachment: fixed;
 }
 
-.stalldashtext{
+.stalldashtext {
   padding: 50px;
   color: white;
   width: 100%;
   height: 100%;
+}
+
+
+
+.confirmationpage {
+  height: 86.5vh;
+  width: 100%;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 110px 80px;
+}
+
+.confirmationpage small {
+  margin-top: 10px;
+  display: block;
+}
+
+.confirmationhead {
+  color: black;
+}
+
+.confirmationrule {
+  z-index: -1;
+  margin-top: -35px;
+  margin-bottom: 1.5rem;
+}
+
+h1>mark{
+  background-color: #fff;
+  }
+
+
+.quote{
+  text-align: center;
+  padding: 120px;
+}
+
+.quote h1{
+  font-size: 30px;
+}
+
+.quotebox1{
+  z-index: 1;
+  padding: 40px;
+  border: 1px solid #000;
 }
