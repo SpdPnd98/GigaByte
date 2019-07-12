@@ -36,12 +36,12 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
-            <a class="nav-item nav-link" href="/" title="BelanjaOne">BelanjaONE</a>
-            <a class="nav-item nav-link" href="userDash.html" title="Food Stalls">Food Stalls</a>
-            <a class="nav-item nav-link" href="#" title="Contact Us">Contact Us</a>
+            <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaONE</a>
+            <a class="nav-item nav-link" href="foodStalls.html" title="Food Stalls">Food Stalls</a>
+            <a class="nav-item nav-link" href="#" title="View Leaderboard">Leaderboard</a>
             <button type="button" class="btn btn-outline-light">Log In</button>
             <button type="button" class="btn btn-light">Sign Up</button>
-            <!-- <a class="nav-item nav-link" href="#" title="Sign Up">Sign Up</a> -->
+            <!-- <button type="button" class="btn btn-outline-light" onclick="window.location.href = 'profile.html';">Profile</button> -->
           </div>
         </div>
       </nav>
@@ -85,7 +85,7 @@
     <!-- Food images -->
     <div class="stall">
       <div class="container">
-        <h1>Please select the stall to donate:</h1>
+        <h1>Top Stalls This Week</h1>
         <div class="row">
           <div class="col-sm-3 pic-container">
             <img class="image" src="images/malay.jpg" alt="makancorner">
@@ -115,15 +115,8 @@
 
         <!-- Select Stall -->
         <div class="container container1">
-          <form action="donate" id="pickStall" method="POST">
-            <select name="foodstalls">
-              <option value="Aljunid Corner">Aljunid Corner</option>
-              <option value="Century Vegetarian Pte Ltd.">Century Vegetarian Pte Ltd.</option>
-              <option value="Boon Lay Place">Boon Lay Place</option>
-              <option value="Makan Corner">Makan Corner</option>
-            </select>
-            <p><input type="submit" class="btn btn-light"></p>
-          </form>
+          <p><input type="button" class="btn btn-light" id="pickStall" onclick="window.location.href = 'foodStalls.html';"
+              value="Donate Now" id="quickdonate"></p>
         </div>
       </div>
     </div>
