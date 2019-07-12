@@ -72,7 +72,7 @@
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody id = "stalls">
                         
                     </tbody>
                 </table>
@@ -80,225 +80,60 @@
         </div>
 
         <script>
-        $(document).ready(function(){
-            $.ajax({
-                url:"testing.json",
-                dataType:"json",
-                success: function(data){
-                    $(data.testing) each (function(value){
-                        let record = `<tr><th scope="row"> ${value.Name} </th><td>${value.Description}</td><td><button type="button" class="btn btn-dark">Donate</button></td><td class="currentDonation">${value.Count}</td>`
-                        $("tbody").append(record);
-                        })
+            function setCells(data) {
+                var z = document.createElement("TD");
+                var t = document.createTextNode(data["Name"]);
+                z.appendChild(t);
+                document.getElementById(data["Name"]+" row").appendChild(z);
+
+                z = document.createElement("TD");
+                t= document.createTextNode(data["Description"]);
+                document.getElementById(data["Name"]+" row").appendChild(z);
+                z.appendChild(t);
+
+                z = document.createElement("TD");
+                btn = document.createElement("BUTTON");
+                btn.appendChild(document.createTextNode("Donate"));
+                btn.setAttribute("id",data["Name"] + "btn");
+                z.appendChild(btn);
+                document.getElementById(data["Name"]+" row").appendChild(z);
+
+                z = document.createElement("TD");
+                t = document.createTextNode(data["Count"]);
+                z.appendChild(t);
+                document.getElementById(data["Name"]+" row").appendChild(z);
+            }
+            function readTextFile(file, callback) {
+            var rawFile = new XMLHttpRequest();
+            rawFile.overrideMimeType("application/json");
+            rawFile.open("GET", file, true);
+            rawFile.onreadystatechange = function() {
+                console.log("Opening the GATE!")
+                if (rawFile.readyState === 4 && rawFile.status == "200") {
+                    callback(rawFile.responseText);
                 }
-            });
-        })
+            }
+            rawFile.send(null);
+        }
+
+        //usage:
+        readTextFile("stalls.json", function(text){
+            console.log("iiziiiiiit");
+            var data = JSON.parse(text);
+            for(element of data){
+                console.log(JSON.stringify(element));
+                console.log(element["Name"]);
+                var y = document.createElement("TR");
+                y.setAttribute("id", element["Name"]+" row");
+                document.getElementById("stalls").appendChild(y);
+                setCells(element);
+            }
+        });
         </script>
     </section>
-    <footer>
-        <p>&copy; Copyright Gigabyte, CXA2019</p>
-    </footer>
-</body>
-                            <script>
-                            var tblRow;
-                            $.getJSON('stalls.json', function(data) {
-                                console.log(data);
-                                for(p in data){
-                                tblRow = `<tr>
-                                <th scope="row">` + p +`</th>
-                                <td>`+ 'very popular!' + `</td>
-                                <td><button type="button" class="btn btn-dark">Donate</button></td>
-                                <td class="currentDonation">`+ data[p] +`</td>
-                            </tr>` 
-                                }
-                                
-                                $(tblRow).appendTo("#restaurantTable tbody");
-                            });
-                            
-                            </script>
-                            
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
     
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
+</body>
+                            
+<footer>
+    <p>&copy; Copyright Gigabyte, CXA2019</p>
+</footer>

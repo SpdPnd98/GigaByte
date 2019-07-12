@@ -13,7 +13,8 @@ extensions = {
 	".gif" : "image/gif",
     ".jpg" : "image/jpeg",
     ".mp4" : "video/mp4",
-    ".ico" : "image/ico"
+    ".ico" : "image/ico",
+    ".json": "text/json"
 };
 
 // Create an instance of the http server to handle HTTP requests
