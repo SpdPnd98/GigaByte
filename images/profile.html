@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <title>BelanjaONE</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header class="transparent mobile-nav">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
+                <a class="navbar-brand" href="index.html" title="BelanjaOne">BelanjaOne</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
+                        <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaONE</a>
+                        <a class="nav-item nav-link" href="foodStalls.html" title="Food Stalls">Food Stalls</a>
+                        <a class="nav-item nav-link" href="#" title="View Leaderboard">Leaderboard</a>
+                        <button type="button" class="btn btn-outline-light">Log In</button>
+                        <button type="button" class="btn btn-light">Sign Up</button>
+                        <!-- <button type="button" class="btn btn-outline-light" onclick="window.location.href = 'profile.html';">Profile</button> -->
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section>
+        <div class="container-media">
+            <div class="mediabg media-fade pic2">
+            </div>
+
+            <div class="stalldashtext">
+                <div class="row stalldashrow">
+                    <div class="col-sm-12">
+                        <img src="images/Bryan.jpg" alt="Bryan" id="profileimg">
+                        <h1>Bryan Tee Pak Hong</h1>
+                        <p>Active Contributor</p>
+                    </div>
+                </div>
+
+                <div class="row stalldashrow">
+                    <div class="col-sm-6">
+                        <h1>Total Donation</h1>
+                        <h1>99</h1>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h1>Last Month's Donation</h1>
+                        <h1>04</h1>
+                    </div>
+                </div>
+                <hr class="stalldashrule">
+
+                <div class="row stalldashrow">
+                    <div class="col-sm-6 consumed">
+                        <h1>Consumed Belanjas</h1>
+                        <h1>95</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <h1 class="level">Level 15</h1>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="progress-circle over50 p93">
+                                    <span>93%</span>
+                                    <div class="left-half-clipper">
+                                        <div class="first50-bar"></div>
+                                        <div class="value-bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9 level-desc">
+                                <p>8 donation left to reach Level 16</p>
+                                <p>Acquired Badges:</p>
+                                <div class="badgeContainer">
+                                    <span><img src="images/medal.png" alt="Superstar badge"></span>
+                                    <span><img src="images/silver-medal.png" alt="2nd Rank badge"></span>
+                                    <span><img src="images/beginner.png" alt="Beginner Badge Level 2"></span>
+                                    <span><img src="images/beginner.png" alt="Beginner Badge Level 1"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr class="stalldashrule">
+
+                <div class="row stalldashrow">
+                    <div class="col-sm-6">
+                        <h1>Donors</h1>
+                        <div class="container">
+                            <div class="table-wrapper-scroll-y my-custom-scrollbar stallList">
+                                <table class="table table-hover table-light mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-xs-2">Stalls</th>
+                                            <th class="col-xs-8">Message</th>
+                                            <th class="col-xs-2">Send Thank You Card</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="ThankYou">
+                                        <script>
+                                            console.log("iamai");
+                                            function setCells(data) {
+                                                var z = document.createElement("TH");
+                                                var t = document.createTextNode(data["Name"]);
+                                                z.appendChild(t);
+                                                document.getElementById(data["Name"] + " row").appendChild(z);
+
+                                                z = document.createElement("TD");
+                                                t = document.createElement("TEXTAREA");
+                                                t.setAttribute("id", data["Name"] + " text")
+                                                document.getElementById(data["Name"] + " row").appendChild(z);
+                                                z.appendChild(t);
+
+                                                z = document.createElement("TD");
+                                                btn = document.createElement("BUTTON");
+                                                btn.appendChild(document.createTextNode("Thank You"));
+                                                btn.setAttribute("id", data["Name"] + "btn");
+                                                btn.setAttribute("type", "button");
+                                                btn.setAttribute("class", "btn btn-warning thx");
+                                                btn.setAttribute("onclick", "document.getElementById('" + data["Name"] + " text').value = ''; alert('One small step for a man, one GIANT leap for mankind! Thanks for your encouragement');");
+                                                z.appendChild(btn);
+                                                document.getElementById(data["Name"] + " row").appendChild(z);
+                                            }
+                                            function readTextFile(file, callback) {
+                                                var rawFile = new XMLHttpRequest();
+                                                rawFile.overrideMimeType("application/json");
+                                                rawFile.open("GET", file, true);
+                                                rawFile.onreadystatechange = function () {
+                                                    console.log("Opening the GATE!")
+                                                    if (rawFile.readyState === 4 && rawFile.status == "200") {
+                                                        callback(rawFile.responseText);
+                                                    }
+                                                }
+                                                rawFile.send(null);
+                                            }
+                                            //usage:
+                                            readTextFile("stalls.json", function (text) {
+                                                console.log("iiziiiiiit");
+                                                var data = JSON.parse(text);
+                                                for (element of data) {
+                                                    console.log(JSON.stringify(element));
+                                                    console.log(element["Name"]);
+                                                    var y = document.createElement("TR");
+                                                    y.setAttribute("id", element["Name"] + " row");
+                                                    document.getElementById("ThankYou").appendChild(y);
+                                                    setCells(element);
+                                                }
+                                            });
+                                        </script>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h1>Food Saved</h1>
+                        <div class="container">
+                            <div class="table-wrapper-scroll-y my-custom-scrollbar stallList">
+                                <table class="table table-hover table-light mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-xs-3">Stall</th>
+                                            <th class="col-xs-6">Description</th>
+                                            <th class="col-xs-1">Donate</th>
+                                            <th class="col-xs-2">Donation</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="HotDeals">
+                                        <script>
+                                            console.log("iamai");
+                                            function setCells2(data) {
+                                                var z = document.createElement("TH");
+                                                var t = document.createTextNode(data["Name"]);
+                                                z.appendChild(t);
+                                                document.getElementById(data["Name"] + " row new").appendChild(z);
+                                                z = document.createElement("TD");
+                                                t = document.createElement("INPUT");
+                                                t.type = "radio";
+                                                t.name = "donationAmount";
+                                                t.id = "DiscountedPrice";
+                                                t.value = data["DiscountedPrice"];
+                                                var objTextNode = document.createTextNode(data["DiscountedPrice"]);
+                                                var objLabel = document.createElement("label");
+                                                objLabel.htmlFor = t.id;
+                                                objLabel.appendChild(t);
+                                                objLabel.appendChild(objTextNode);
+                                                z.appendChild(objLabel);
+                                                t = document.createElement("INPUT");
+                                                t.type = "radio";
+                                                t.name = "donationAmount";
+                                                t.id = "OriginalPrice";
+                                                t.value = data["OriginalPrice"];
+                                                objTextNode = document.createTextNode(data["OriginalPrice"]);
+                                                objLabel = document.createElement("label");
+                                                objLabel.htmlFor = t.id;
+                                                objLabel.appendChild(t);
+                                                objLabel.appendChild(objTextNode);
+                                                z.appendChild(objLabel);
+                                                document.getElementById(data["Name"] + " row new").appendChild(z);
+                                                z = document.createElement("TD");
+                                                btn = document.createElement("BUTTON");
+                                                btn.appendChild(document.createTextNode("Donate"));
+                                                btn.setAttribute("id", data["Name"] + "btn2 new");
+                                                btn.setAttribute("type", "button");
+                                                btn.setAttribute("class", "btn btn-dark");
+                                                z.appendChild(btn);
+                                                document.getElementById(data["Name"] + " row new").appendChild(z);
+
+                                                z = document.createElement("TR");
+                                                t = document.createTextNode(data["Count"]);
+                                                z.appendChild(t);
+                                                document.getElementById(data["Name"] + " row new").appendChild(z);
+                                            }
+                                            function readTextFile(file, callback) {
+                                                var rawFile = new XMLHttpRequest();
+                                                rawFile.overrideMimeType("application/json");
+                                                rawFile.open("GET", file, true);
+                                                rawFile.onreadystatechange = function () {
+                                                    console.log("Opening the GATE!")
+                                                    if (rawFile.readyState === 4 && rawFile.status == "200") {
+                                                        callback(rawFile.responseText);
+                                                    }
+                                                }
+                                                rawFile.send(null);
+                                            }
+                                            //usage:
+                                            readTextFile("stalls.json", function (text) {
+                                                var data = JSON.parse(text);
+                                                for (element of data) {
+                                                    console.log(JSON.stringify(element));
+                                                    console.log(element["Name"]);
+                                                    var y = document.createElement("TR");
+                                                    y.setAttribute("id", element["Name"] + " row new");
+                                                    document.getElementById("HotDeals").appendChild(y);
+                                                    setCells2(element);
+                                                }
+                                            });
+                                        </script>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; Copyright Gigabyte, CXA2019</p>
+    </footer>
+
+    <script>
+        var circle = document.querySelector('circle');
+        var radius = circle.r.baseVal.value;
+        var circumference = radius * 2 * Math.PI;
+
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = `${circumference}`;
+
+        function setProgress(percent) {
+            const offset = circumference - percent / 100 * circumference;
+            circle.style.strokeDashoffset = offset;
+        }
+
+        const input = document.querySelector('input');
+        setProgress(input.value);
+
+        input.addEventListener('change', function (e) {
+            if (input.value < 101 && input.value > -1) {
+                setProgress(input.value);
+            }
+        })
+    </script>
+
+</body>
+
+</html>
