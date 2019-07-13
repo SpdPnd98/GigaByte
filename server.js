@@ -74,7 +74,7 @@ let app = http.createServer((req, res) => {
                                     <p> Are you sure you want to donate to ` + post.foodstalls  + `?</p>  <form method="POST" action="confirmation">
                                     <input type="Submit" name="confirmation" value="Yes" class="btn btn-dark">
                                     <input type="Submit" name="confirmation" value="No" class="btn btn-dark">
-                                    <input type="hidden" value="'` + post.foodstalls + `'" name="foodstalls">
+                                    <input type="hidden" value="` + post.foodstalls + `" name="foodstalls">
                                 </form>
                                 <small>*$` + post.donationAmount + ` will be deducted from your account</small>
                                 <div class="quote">
@@ -93,7 +93,7 @@ let app = http.createServer((req, res) => {
                     </section>`;
                         break;
                     case '/confirmation':
-                        //var records = [];
+                        console.log(post);
                         console.log(post.confirmation);
                         if (post.confirmation == "Yes"){
                             for (var obj of file ){
