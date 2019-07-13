@@ -43,8 +43,54 @@ let app = http.createServer((req, res) => {
                 console.log('added header');
                 switch(req.url){
                     case '/donate':
-                        toshow = '<p> Are you sure you want to donate to ' + post.foodstalls + '?</p>';
-                        toshow += '<form method="POST" action="confirmation"><input type="Submit" name ="confirmation" value="Yes"/><input type="Submit" name="confirmation" value="No"/> <input type="hidden" value = "' + post.foodstalls +'" name="foodstalls"/></form>';
+                        toshow = `<body>
+                        <header class="darknav">
+                            <div class="container-fluid">
+                                <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
+                                    <a class="navbar-brand" href="#" title="BelanjaOne">BelanjaOne</a>
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                                        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                    
+                                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                                        <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
+                                            <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaONE</a>
+                                            <a class="nav-item nav-link" href="#" title="About Us">Food Stalls</a>
+                                            <a class="nav-item nav-link" href="#" title="Contact Us">Contact Us</a>
+                                            <button type="button" class="btn btn-outline-light">Log In</button>
+                                            <button type="button" class="btn btn-light">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </header>
+                    
+                        <section class="confirmation">
+                            <div class="confirmationpage">
+                                <div class="confirm">
+                                    <h1 class="confirmationhead"><mark>Confirmation Page</mark></h1>
+                                    <hr class="confirmationrule">
+                                    <p> Are you sure you want to donate to ` + post.foodstalls  + `?</p>  <form method="POST" action="confirmation">
+                                    <input type="Submit" name="confirmation" value="Yes" class="btn btn-dark">
+                                    <input type="Submit" name="confirmation" value="No" class="btn btn-dark">
+                                    <input type="hidden" value="'` + post.foodstalls + `'" name="foodstalls">
+                                </form>
+                                <small>*$` + post.donationAmount + ` will be deducted from your account</small>
+                                <div class="quote">
+                                    <div class="col-sm-12 quotebox1">
+                                        <h1 class="confirmationhead">
+                                            Giving is not just about making a donation, it is about making a difference.
+                                        </h1>
+                                        <h1 class="confirmationhead">
+                                            -Kathy Calvin-
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                
+                        </div>
+                    </section>`;
                         break;
                     case '/confirmation':
                         //var records = [];
@@ -62,11 +108,93 @@ let app = http.createServer((req, res) => {
                                 
                             }
                         }                         
-                            toshow = '<p> Your donation is successful!</p>';
+                            toshow = `<body>
+                            <header class="darknav">
+                                <div class="container-fluid">
+                                    <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
+                                        <a class="navbar-brand" href="#" title="BelanjaOne">BelanjaOne</a>
+                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                                            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                                            <span class="navbar-toggler-icon"></span>
+                                        </button>
+                        
+                                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                                            <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
+                                                <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaONE</a>
+                                                <a class="nav-item nav-link" href="#" title="About Us">Food Stalls</a>
+                                                <a class="nav-item nav-link" href="#" title="Contact Us">Contact Us</a>
+                                                <button type="button" class="btn btn-outline-light">Log In</button>
+                                                <button type="button" class="btn btn-light">Sign Up</button>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </header>
+                        
+                            <section class="confirmation">
+                                <div class="confirmationpage">
+                                    <div class="confirm">
+                                        <h1 class="confirmationhead1"> Your donation is successful!</h1>
+                                        <h1 class="confirmationhead"> Thank you for your donation!</h1>
+                                        <p class="backtostall">Click <a href="/">here</a> to return.</p>
+                                        <div class="quote">
+                                            <div class="col-sm-12 quotebox1">
+                                                <h1 class="confirmationhead">
+                                                    Giving is not just about making a donation, it is about making a difference.
+                                                </h1>
+                                                <h1 class="confirmationhead">
+                                                    -Kathy Calvin-
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                </div>
+                            </section>`;
                         }else if (post.confirmation == "No"){
-                            toshow = '<p> You have cancelled your donation.</p>';
+                            toshow = `<body>
+                            <header class="darknav">
+                                <div class="container-fluid">
+                                    <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
+                                        <a class="navbar-brand" href="#" title="BelanjaOne">BelanjaOne</a>
+                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                                            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                                            <span class="navbar-toggler-icon"></span>
+                                        </button>
+                        
+                                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                                            <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
+                                                <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaONE</a>
+                                                <a class="nav-item nav-link" href="#" title="About Us">Food Stalls</a>
+                                                <a class="nav-item nav-link" href="#" title="Contact Us">Contact Us</a>
+                                                <button type="button" class="btn btn-outline-light">Log In</button>
+                                                <button type="button" class="btn btn-light">Sign Up</button>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </header>
+                        
+                            <section class="confirmation">
+                                <div class="confirmationpage">
+                                    <div class="confirm">
+                                        <h1 class="confirmationhead1"> Your have cancelled your donation!</h1>
+                                        <p class="backtostall">Click <a href="/">here</a> to return.</p>
+                                        <div class="quote">
+                                            <div class="col-sm-12 quotebox1">
+                                                <h1 class="confirmationhead">
+                                                    Giving is not just about making a donation, it is about making a difference.
+                                                </h1>
+                                                <h1 class="confirmationhead">
+                                                    -Kathy Calvin-
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                </div>
+                            </section>`;
                         }
-                        toshow += '<p>Click <a href="/">here</a> to return.</p>';
                         break;
                     case '/eat':
                         // pass in a foodstall name to delete it

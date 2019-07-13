@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <title>BelanjaONE</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header class="darknav mobile-nav">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
+                <a class="navbar-brand" href="#" title="BelanjaOne">BelanjaOne</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
+                        <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaONE</a>
+                        <a class="nav-item nav-link" href="foodStalls.html" title="Food Stalls">Food Stalls</a>
+                        <a class="nav-item nav-link" href="#" title="View Leaderboard">Leaderboard</a>
+                        <button type="button" class="btn btn-outline-light">Log In</button>
+                        <button type="button" class="btn btn-light" onclick="window.location.href = 'signup.html'">Sign
+                            Up</button>
+                        <!-- <button type="button" class="btn btn-outline-light" onclick="window.location.href = 'profile.html';">Profile</button> -->
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="login">
+        <div class="container">
+            <div class="col-md-12 signup">
+                <div class="card">
+                    <div class="imagesignup pull-left">
+                        <div class="signuppic media-fade-signup">
+                        </div>
+                        <h1 class="textOnPicsignup"><strong>BelanjaONE</strong></h1>
+                        <h1 class="textOnPicdesc">Welcome Back!</h1>
+                        <p class="textOnPicdesc">To keep connected with us please login with your personal info</p>
+                        <button type="button" class="btn btn-outline-light textOnPicdesc">Log In</button>
+                    </div>
+                    <div class="content pull-left">
+                        <h1><strong>Create Account</strong></h1>
+                        <form id="signup">
+                            <input type="text" name="fname" id="fname" placeholder="Full Name">
+                            <input type="email" name="email" id="email" placeholder="Email">
+                            <input type="password" name="password" id="password" placeholder="Password">
+                            <p><button type="button" class="btn btn-dark">Sign Up</button></p>
+                        </form>
+                    </div>
+                    <div class="clearfix">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Copyright Gigabyte, CXA2019</p>
+    </footer>
+</body>
+
+</html>
