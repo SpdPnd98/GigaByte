@@ -39,10 +39,9 @@
                     <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
                         <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaONE</a>
                         <a class="nav-item nav-link" href="foodStalls.html" title="Food Stalls">Food Stalls</a>
-                        <a class="nav-item nav-link" href="#" title="View Leaderboard">Leaderboard</a>
-                        <button type="button" class="btn btn-outline-light">Log In</button>
-                        <button type="button" class="btn btn-light">Sign Up</button>
-                        <!-- <button type="button" class="btn btn-outline-light" onclick="window.location.href = 'profile.html';">Profile</button> -->
+                        <button type="button" class="btn btn-outline-light" onclick="window.location.href = 'profile.html';">Profile</button>
+                        <button type="button" class="btn btn-light" onclick="window.location.href = 'signup.html'">Sign
+                                Out</button>
                     </div>
                 </div>
             </nav>
@@ -80,9 +79,11 @@
                         <h1>Consumed Belanjas</h1>
                         <h1>95</h1>
                     </div>
+                    <!-- Level -->
                     <div class="col-sm-6">
                         <h1 class="level">Level 15</h1>
-                        <div class="row">
+                        <div class="row pull-right">
+                            <div class="col-sm-1"></div>
                             <div class="col-sm-3">
                                 <div class="progress-circle over50 p93">
                                     <span>93%</span>
@@ -92,7 +93,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-9 level-desc">
+                            <div class="col-sm-7 level-desc">
                                 <p>8 donation left to reach Level 16</p>
                                 <p>Acquired Badges:</p>
                                 <div class="badgeContainer">
@@ -102,6 +103,7 @@
                                     <span><img src="images/beginner.png" alt="Beginner Badge Level 1"></span>
                                 </div>
                             </div>
+                            <div class="col-sm-1"></div>
                         </div>
 
                     </div>
@@ -111,7 +113,7 @@
 
                 <div class="row stalldashrow">
                     <div class="col-sm-6">
-                        <h1>Donors</h1>
+                        <h1>Send a Thank You Message </h1>
                         <div class="container">
                             <div class="table-wrapper-scroll-y my-custom-scrollbar stallList">
                                 <table class="table table-hover table-light mb-0">
@@ -181,16 +183,16 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <h1>Food Saved</h1>
+                        <h1>Hot Deals</h1>
                         <div class="container">
                             <div class="table-wrapper-scroll-y my-custom-scrollbar stallList">
                                 <table class="table table-hover table-light mb-0">
                                     <thead>
                                         <tr>
                                             <th class="col-xs-3">Stall</th>
-                                            <th class="col-xs-6">Description</th>
+                                            <th class="col-xs-6">Options</th>
                                             <th class="col-xs-1">Donate</th>
-                                            <th class="col-xs-2">Donation</th>
+                                            <th class="col-xs-2">Current Donation</th>
                                         </tr>
                                     </thead>
 
@@ -200,6 +202,7 @@
                                             function setCells2(data) {
                                                 var z = document.createElement("TH");
                                                 var t = document.createTextNode(data["Name"]);
+                                                z.setAttribute("align", "left");
                                                 z.appendChild(t);
                                                 document.getElementById(data["Name"] + " row new").appendChild(z);
                                                 z = document.createElement("TD");
@@ -232,11 +235,13 @@
                                                 btn.setAttribute("id", data["Name"] + "btn2 new");
                                                 btn.setAttribute("type", "button");
                                                 btn.setAttribute("class", "btn btn-dark");
+                                                z.setAttribute("align", "center");
                                                 z.appendChild(btn);
                                                 document.getElementById(data["Name"] + " row new").appendChild(z);
 
-                                                z = document.createElement("TR");
+                                                z = document.createElement("TD");
                                                 t = document.createTextNode(data["Count"]);
+                                                z.setAttribute("align", "center");
                                                 z.appendChild(t);
                                                 document.getElementById(data["Name"] + " row new").appendChild(z);
                                             }
