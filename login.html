@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <title>Confirmation Page</title>
+    <title>BelanjaONE</title>
     <link rel="shortcut icon" href="favicon.ico">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -24,13 +24,11 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-
-
 <body>
-    <header class="darknav">
+    <header class="darknav mobile-nav">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
-                <a class="navbar-brand" href="index.html" title="BelanjaOne">BelanjaOne</a>
+                <a class="navbar-brand" href="#" title="BelanjaOne">BelanjaOne</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,45 +36,48 @@
 
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
-                        <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaONE</a>
-                        <a class="nav-item nav-link" href="foodStalls.html" title="Food Stalls">Food Stalls</a>
                         <button type="button" class="btn btn-outline-light"
-                            onclick="window.location.href = 'profile.html';">Profile</button>
+                            onclick="window.location.href = 'login.html'">Log In</button>
                         <button type="button" class="btn btn-light" onclick="window.location.href = 'signup.html'">Sign
-                            Out</button>
+                            Up</button>
+                        <!-- <button type="button" class="btn btn-outline-light" onclick="window.location.href = 'profile.html';">Profile</button> -->
                     </div>
                 </div>
             </nav>
         </div>
     </header>
 
-    <section class="confirmation">
-        <div class="confirmationpage">
-            <div class="confirm">
-                <h1 class="confirmationhead"><mark>Confirmation Page</mark></h1>
-                <hr class="confirmationrule">
-                <p> Are you sure you want to donate to Aljunid Corner?</p>
-                <form method="POST" action="confirmation">
-                    <input type="Submit" name="confirmation" value="Yes" class="btn btn-dark">
-                    <input type="Submit" name="confirmation" value="No" class="btn btn-dark">
-                    <input type="hidden" value="' + post.foodstalls +'" name="foodstalls">
-                </form>
-                <small>*$3 will be deducted from your account</small>
-                <div class="quote">
-                    <div class="col-sm-12 quotebox1">
-                        <h1 class="confirmationhead">
-                            Giving is not just about making a donation, it is about making a difference.
-                        </h1>
-                        <h1 class="confirmationhead">
-                            -Kathy Calvin-
-                        </h1>
+    <section class="login">
+        <div class="container">
+            <div class="col-md-12 signup">
+                <div class="card">
+                    <div class="imagesignup pull-left">
+                        <div class="signuppic media-fade-signup">
+                        </div>
+                        <h1 class="textOnPicsignup"><strong>BelanjaONE</strong></h1>
+                        <h1 class="textOnPicdesc">Hello!</h1>
+                        <p class="textOnPicdesc">Sign up and join us at BelanjaONE and give more</p>
+                        <button type="button" class="btn btn-outline-light textOnPicdesc"
+                            onclick="window.location.href = 'signup.html'">Sign Up</button>
+                    </div>
+                    <div class="content pull-left">
+                        <h1><strong>Log In</strong></h1>
+                        <form id="login">
+                            <input type="text" name="fname" id="fname" placeholder="Full Name" required>
+                            <input type="email" name="email" id="email" placeholder="Email" required>
+                            <input type="password" name="password" id="password" placeholder="Password" required>
+                            <p><button type="button" class="btn btn-dark"
+                                    onclick="window.location.href = 'profile.html'">Log In</button></p>
+                        </form>
+                    </div>
+                    <div class="clearfix">
+
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
-
+    <!-- Footer -->
     <footer>
         <p>&copy; Copyright Gigabyte, CXA2019</p>
     </footer>

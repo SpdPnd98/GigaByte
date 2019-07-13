@@ -28,7 +28,7 @@
     <header class="darknav">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
-                <a class="navbar-brand" href="#" title="BelanjaOne">BelanjaOne</a>
+                <a class="navbar-brand" href="index.html" title="BelanjaOne">BelanjaOne</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,9 +38,10 @@
                     <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
                         <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaONE</a>
                         <a class="nav-item nav-link" href="foodStalls.html" title="Food Stalls">Food Stalls</a>
-                        <a class="nav-item nav-link" href="#" title="View Leaderboard">Leaderboard</a>
-                        <button type="button" class="btn btn-outline-light">Log In</button>
-                        <button type="button" class="btn btn-light">Sign Up</button>
+                        <button type="button" class="btn btn-outline-light"
+                            onclick="window.location.href = 'profile.html';">Profile</button>
+                        <button type="button" class="btn btn-light" onclick="window.location.href = 'signup.html'">Sign
+                            Out</button>
                         <!-- <button type="button" class="btn btn-outline-light" onclick="window.location.href = 'profile.html';">Profile</button> -->
                     </div>
                 </div>
@@ -91,13 +92,15 @@
                 z.appendChild(t);
                 z = document.createElement("TD");
                 btn = document.createElement("BUTTON");
-                btn.appendChild(document.createTextNode("Fast Donate"));
-                btn.setAttribute("id", data["Name"]);
-                btn.setAttribute("onClick","createForm(\""+data["Name"]+"\","+data["DiscountedPrice"]+");");
+                btn.appendChild(document.createTextNode("Donate"));
+                btn.setAttribute("id", data["Name"] + "btn");
+                btn.setAttribute("class", "btn btn-dark");
+                z.setAttribute("align", "center");
                 z.appendChild(btn);
                 document.getElementById(data["Name"] + " row").appendChild(z);
                 z = document.createElement("TD");
                 t = document.createTextNode(data["Count"]);
+                z.setAttribute("align", "center");
                 z.appendChild(t);
                 document.getElementById(data["Name"] + " row").appendChild(z);
             }
@@ -112,26 +115,6 @@
                     }
                 }
                 rawFile.send(null);
-            }
-
-            function createForm(category,price){
-                console.log(category);
-                console.log(price);
-                var form = document.createElement("FORM");
-                var sendingCategory = document.createElement("INPUT");
-                var pricing = document.createElement("INPUT");
-                sendingCategory.setAttribute("name", "foodstalls");
-                sendingCategory.setAttribute("value", category);
-                sendingCategory.setAttribute("type", "hidden");
-                pricing.setAttribute("name", "donationAmount");
-                pricing.setAttribute("value", price);
-                pricing.setAttribute("type", "hidden");
-                form.appendChild(sendingCategory);
-                form.appendChild(pricing);
-                form.setAttribute("method","POST");
-                form.setAttribute("action","donate");
-                document.getElementById(category + " row").appendChild(form)
-                form.submit();
             }
             //usage:
             readTextFile("stalls.json", function (text) {
