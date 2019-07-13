@@ -1014,6 +1014,7 @@ section.login {
 }
 
 .signuppic {
+  /* <a href="https://www.freepik.com/free-photos-vectors/food">Food vector created by bimbimkha - www.freepik.com</a> */
   background-image: url('images/vector.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -1103,4 +1104,8 @@ section.login {
 #login button{
   width: 70%;
   padding: 10px;
+}
+
+table td.radiobuttons{
+  padding-left: 25px;
 }

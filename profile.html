@@ -136,7 +136,8 @@
 
                                                 z = document.createElement("TD");
                                                 t = document.createElement("TEXTAREA");
-                                                t.setAttribute("id", data["Name"] + " text")
+                                                t.setAttribute("id", data["Name"] + " text");
+                                                t.setAttribute("placeholder", "Enter your message here...");
                                                 document.getElementById(data["Name"] + " row").appendChild(z);
                                                 z.appendChild(t);
 
@@ -205,30 +206,48 @@
                                                 z.setAttribute("align", "left");
                                                 z.appendChild(t);
                                                 document.getElementById(data["Name"] + " row new").appendChild(z);
+                                                
                                                 z = document.createElement("TD");
+                                                z.setAttribute("class", "radiobuttons");
+                                                d1 = document.createElement("DIV");
+                                                d1.setAttribute("class", "row pull-left radio"); 
+                                                d2 = document.createElement("DIV");
+                                                d2.setAttribute("class", "col");
                                                 t = document.createElement("INPUT");
+                                                t.setAttribute("class", "radiobutton");
                                                 t.type = "radio";
                                                 t.name = "donationAmount";
                                                 t.id = "DiscountedPrice";
                                                 t.value = data["DiscountedPrice"];
-                                                var objTextNode = document.createTextNode(data["DiscountedPrice"]);
+                                                var objTextNode = document.createTextNode(" $" + data["DiscountedPrice"]);
                                                 var objLabel = document.createElement("label");
                                                 objLabel.htmlFor = t.id;
                                                 objLabel.appendChild(t);
                                                 objLabel.appendChild(objTextNode);
-                                                z.appendChild(objLabel);
+                                                d2.appendChild(d1);
+                                                d1.appendChild(objLabel);
+                                                z.appendChild(d1);
+
+                                                d1 = document.createElement("DIV");
+                                                d1.setAttribute("class", "row pull-left"); 
+                                                d2 = document.createElement("DIV");
+                                                d2.setAttribute("class", "col-xs-1");
                                                 t = document.createElement("INPUT");
+                                                t.setAttribute("class", "radiobutton");
                                                 t.type = "radio";
                                                 t.name = "donationAmount";
                                                 t.id = "OriginalPrice";
                                                 t.value = data["OriginalPrice"];
-                                                objTextNode = document.createTextNode(data["OriginalPrice"]);
+                                                objTextNode = document.createTextNode(" $" + data["OriginalPrice"]);
                                                 objLabel = document.createElement("label");
                                                 objLabel.htmlFor = t.id;
                                                 objLabel.appendChild(t);
                                                 objLabel.appendChild(objTextNode);
-                                                z.appendChild(objLabel);
+                                                d2.appendChild(d1);
+                                                d1.appendChild(objLabel);
+                                                z.appendChild(d1);
                                                 document.getElementById(data["Name"] + " row new").appendChild(z);
+                                                
                                                 z = document.createElement("TD");
                                                 btn = document.createElement("BUTTON");
                                                 btn.appendChild(document.createTextNode("Donate"));
