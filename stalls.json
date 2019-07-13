@@ -1,1 +1,72 @@
-[{"Name":"Aljunied Corner","Count":-28,"Description":"If you're in Singapore, you need to check this place out because you won't be disappointed. There are so many different options for food, and you will find something tasty for everyone.","OriginalPrice":3,"DiscountedPrice":2.49},{"Name":"Boon Lay Place","Count":10,"Description":"Combining the greasy charred meat with a burst of zesty lime juice made every bite scrumptious! Do note that you got to get a minimum of two pieces, but given how good these wings are, finishing them won’t be a problem.","OriginalPrice":3,"DiscountedPrice":2},{"Name":"Century Vegetarian Pte Ltd.","Count":3,"Description":"Best Indonesian-Singaporean food I had till date. Food here is not just tasty but also home-like.Nice and clean place with great helping staff.Will be revisiting it again N again :)","OriginalPrice":3,"DiscountedPrice":2.79},{"Name":"Makan Corner","Count":16,"Description":"Delicious Thai restaurant but a tad expensive. I did a walk- in on a friday evening and all the tables have been reserved. Out of the goodness of her heart, a waitress gave us a table albeit for only an hour. If you like fish, try ordering their steamed sea bass. To me, that's really good. The fish meat is tender and juicy, and the limey and garlicky sauce make this dish an ace","OriginalPrice":3,"DiscountedPrice":2.15}]
+[
+    {
+        "Name": "Aljunied Corner",
+        "Count": -28,
+        "Description": "If you're in Singapore, you need to check this place out because you won't be disappointed. There are so many different options for food, and you will find something tasty for everyone.",
+        "OriginalPrice": 3,
+        "DiscountedPrice": 2.49
+    },
+    {
+        "Name": "Boon Lay Place",
+        "Count": 10,
+        "Description": "Combining the greasy charred meat with a burst of zesty lime juice made every bite scrumptious! Do note that you got to get a minimum of two pieces, but given how good these wings are, finishing them won’t be a problem.",
+        "OriginalPrice": 3,
+        "DiscountedPrice": 2
+    },
+    {
+        "Name": "Century Vegetarian Pte Ltd.",
+        "Count": 3,
+        "Description": "Best Indonesian-Singaporean food I had till date. Food here is not just tasty but also home-like.Nice and clean place with great helping staff.Will be revisiting it again N again :)",
+        "OriginalPrice": 3,
+        "DiscountedPrice": 2.79
+    },
+    {
+        "Name": "Makan Corner",
+        "Count": 16,
+        "Description": "Delicious Thai restaurant but a tad expensive. I did a walk- in on a friday evening and all the tables have been reserved. Out of the goodness of her heart, a waitress gave us a table albeit for only an hour. If you like fish, try ordering their steamed sea bass. To me, that's really good. The fish meat is tender and juicy, and the limey and garlicky sauce make this dish an ace",
+        "OriginalPrice": 3,
+        "DiscountedPrice": 2.15
+    },
+    {
+        "Name": "Whampoa Hawker Centre",
+        "Count": 1,
+        "Description": "A Hawker Centre serving authentic Singaporean food loved by the locals which is located in a residential area with affordable prices.",
+        "OriginalPrice": 3,
+        "DiscountedPrice": 2.65
+    },
+    {
+        "Name": "De Tian Coffee Shop",
+        "Count": 2,
+        "Description": "De Tian Coffee Shop is a coffee shop with affordable and nice variety of food for day to day meals. This is also one of the pioneer of the Belanja-A-Meal program for the needy.",
+        "OriginalPrice": 3,
+        "DiscountedPrice": 2.34
+    },
+    {
+        "Name": "Chinatown Complex Food Centre",
+        "Count": 3,
+        "Description": "Being the largest hawker centre in Singapore with over 260 food stalls, Chinatown Complex Food Centre offers foodies a full range of local dishes and desserts with reasonable and competitive prices because there are many stalls selling similar foods.",
+        "OriginalPrice": 3,
+        "DiscountedPrice": 2.20
+    },
+    {
+        "Name": "Old Airport Road Food Centre",
+        "Count": 4,
+        "Description": "Old Airport Road Food Centre, one of the oldest and largest food courts in the island city, serves authentic yummy local food to many generations of Singaporeans. The foodcourt is home to some of the best soya beancurd stalls including the renowned Lao Ban Soya Beancurd and 51 Soya Beancurd.",
+        "OriginalPrice": 3,
+        "DiscountedPrice": 2.77
+    },
+    {
+        "Name": "Maxwell Road Hawker Centre",
+        "Count": 5,
+        "Description": " Strategically located at Chinatown and opposite the beautiful Buddha Tooth Relic Temple and Museum, this hawker centre is an ideal place for visitors to have a rest and enjoy tasty local food while exploring Chinatown.",
+        "OriginalPrice": 3,
+        "DiscountedPrice": 2.85
+    },
+    {
+        "Name": "Tiong Bahru Market Hawker Centre",
+        "Count": 6,
+        "Description": "Tiong Bahru Market Hawker Centre is now one of the cleanest and most spacious hawker centres in Singapore. This food centre is equipped with the latest mechanical exhaust system for each of its stalls and smartly utilized the open-air, so you will definitely enjoy the airy, comfortable and relaxing atmosphere there.",
+        "OriginalPrice": 3,
+        "DiscountedPrice": 2.55
+    }
+]

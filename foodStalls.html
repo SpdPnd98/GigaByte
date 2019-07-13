@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <title>BelanjaONE</title>
+    <title>BelanjaOne</title>
     <link rel="shortcut icon" href="favicon.ico">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -36,10 +36,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <div class="navbar-nav mr-auto mt-2 mt-lg-0 .pull-right">
-                        <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaONE</a>
+                        <a class="nav-item nav-link" href="index.html" title="BelanjaOne">BelanjaOne</a>
                         <a class="nav-item nav-link" href="foodStalls.html" title="Food Stalls">Food Stalls</a>
-                        <button type="button" class="btn btn-outline-light">Log In</button>
-                        <button type="button" class="btn btn-light">Sign Up</button>
+                        <button type="button" class="btn btn-outline-light"
+                            onclick="window.location.href = 'profile.html';">Profile</button>
+                        <button type="button" class="btn btn-light" onclick="window.location.href = 'signup.html'">Sign
+                            Out</button>
                         <!-- <button type="button" class="btn btn-outline-light" onclick="window.location.href = 'profile.html';">Profile</button> -->
                     </div>
                 </div>
@@ -81,8 +83,11 @@
         <script>
             function setCells(data) {
                 var z = document.createElement("TD");
+                var s = document.createElement("strong");
                 var t = document.createTextNode(data["Name"]);
-                z.appendChild(t);
+                z.setAttribute("align", "center");
+                s.appendChild(t);
+                z.appendChild(s);
                 document.getElementById(data["Name"] + " row").appendChild(z);
                 z = document.createElement("TD");
                 t = document.createTextNode(data["Description"]);
@@ -92,11 +97,13 @@
                 btn = document.createElement("BUTTON");
                 btn.appendChild(document.createTextNode("Fast Donate"));
                 btn.setAttribute("id", data["Name"]);
-                btn.setAttribute("onClick","createForm(\""+data["Name"]+"\","+data["DiscountedPrice"]+");");
+                btn.setAttribute("onClick", "createForm(\"" + data["Name"] + "\"," + data["DiscountedPrice"] + ");");
+                btn.setAttribute("class", "btn btn-dark");
                 z.appendChild(btn);
                 document.getElementById(data["Name"] + " row").appendChild(z);
                 z = document.createElement("TD");
                 t = document.createTextNode(data["Count"]);
+                z.setAttribute("align", "center");
                 z.appendChild(t);
                 document.getElementById(data["Name"] + " row").appendChild(z);
             }
@@ -113,7 +120,7 @@
                 rawFile.send(null);
             }
 
-            function createForm(category,price){
+            function createForm(category, price) {
                 console.log(category);
                 console.log(price);
                 var form = document.createElement("FORM");
@@ -127,8 +134,8 @@
                 pricing.setAttribute("type", "hidden");
                 form.appendChild(sendingCategory);
                 form.appendChild(pricing);
-                form.setAttribute("method","POST");
-                form.setAttribute("action","donate");
+                form.setAttribute("method", "POST");
+                form.setAttribute("action", "donate");
                 document.getElementById(category + " row").appendChild(form)
                 form.submit();
             }

@@ -364,6 +364,10 @@ section {
   vertical-align: middle;
 }
 
+.table thead th{
+  vertical-align: middle;
+}
+
 .table th, .currentDonation {
   text-align: center;
 }
